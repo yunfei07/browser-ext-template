@@ -13,11 +13,14 @@
       "128": "icons/icon128.png"
     }
   },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
   "background": {
     "service_worker": "assets/background.js",
     "type": "module"
   },
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "sidePanel"],
   "host_permissions": ["<all_urls>"],
   "content_scripts": [
     {

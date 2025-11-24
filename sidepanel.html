@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Side Panel</title>
+    <link rel="stylesheet" href="/src/sidepanel/style.css" />
+  </head>
+  <body>
+    <main class="panel">
+      <header>
+        <p class="eyebrow">SIDE PANEL</p>
+        <h1>页面助手</h1>
+        <p class="muted">在侧边栏与页面互动，查看状态并执行快捷操作。</p>
+      </header>
+
+      <section class="card">
+        <div class="row">
+          <div>
+            <p class="label">当前标签页</p>
+            <p id="tab-title" class="title">加载中...</p>
+            <p id="tab-url" class="muted small"></p>
+          </div>
+          <button id="refresh" class="ghost">刷新信息</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="actions">
+          <button id="ping">Ping content script</button>
+          <button id="highlight">高亮选中内容</button>
+        </div>
+        <p id="status" class="muted small">等待操作...</p>
+      </section>
+    </main>
+
+    <script type="module" src="/src/sidepanel/main.ts"></script>
+  </body>
+</html>

@@ -3,8 +3,19 @@ const showBadge = () => {
   chrome.action.setBadgeBackgroundColor({ color: "#22d3ee" });
 };
 
+const setupSidePanel = async () => {
+  // 设置默认 side panel 页面，并允许点击扩展图标时自动打开
+  try {
+    await chrome.sidePanel.setOptions({ path: "sidepanel.html", enabled: true });
+    await chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true });
+  } catch (error) {
+    console.warn("[background] side panel 配置失败：", (error as Error).message);
+  }
+};
+
 chrome.runtime.onInstalled.addListener(({ reason }) => {
   showBadge();
+  setupSidePanel();
   if (reason === "install") {
     console.info("[background] 扩展已安装");
   } else if (reason === "update") {

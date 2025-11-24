@@ -1,0 +1,18 @@
+{
+  "name": "browser-ext-tempalte",
+  "version": "0.0.1",
+  "description": "Chrome 扩展开发模板（Manifest V3 + Vite + TypeScript）。",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"尚未配置测试，请根据需要添加测试框架\" && exit 1"
+  },
+  "author": "yunfei yang",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chrome": "^0.0.258",
+    "typescript": "^5.4.0",
+    "vite": "^5.0.0"
+  }
+}

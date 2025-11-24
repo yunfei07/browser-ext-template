@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Extension Options</title>
+    <link rel="stylesheet" href="/src/options/style.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <header>
+        <p class="eyebrow">OPTIONS</p>
+        <h1>插件设置</h1>
+        <p class="muted">调整偏好并持久化到 storage.sync</p>
+      </header>
+
+      <section class="card">
+        <label class="row">
+          <div>
+            <p class="label">主题色</p>
+            <p class="muted small">用于高亮与徽章颜色</p>
+          </div>
+          <input id="accent" type="color" value="#22d3ee" />
+        </label>
+      </section>
+
+      <section class="card">
+        <label class="row">
+          <div>
+            <p class="label">启用高亮</p>
+            <p class="muted small">允许 content script 应用高亮效果</p>
+          </div>
+          <input id="enable-highlight" type="checkbox" checked />
+        </label>
+      </section>
+
+      <section class="card">
+        <button id="save">保存设置</button>
+        <p id="status" class="muted small">尚未保存更改</p>
+      </section>
+    </main>
+
+    <script type="module" src="/src/options/main.ts"></script>
+  </body>
+</html>

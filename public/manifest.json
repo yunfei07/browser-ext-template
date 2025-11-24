@@ -16,6 +16,7 @@
   "side_panel": {
     "default_path": "sidepanel.html"
   },
+  "options_page": "options.html",
   "background": {
     "service_worker": "assets/background.js",
     "type": "module"

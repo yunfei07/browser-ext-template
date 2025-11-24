@@ -4,6 +4,7 @@ const urlEl = document.getElementById("tab-url");
 const refreshBtn = document.getElementById("refresh");
 const pingBtn = document.getElementById("ping");
 const highlightBtn = document.getElementById("highlight");
+const openOptionsBtn = document.getElementById("open-options");
 
 const setStatus = (text: string) => {
   if (statusEl) statusEl.textContent = text;
@@ -57,6 +58,32 @@ highlightBtn?.addEventListener("click", async () => {
 });
 
 refreshBtn?.addEventListener("click", refreshTabInfo);
+
+const openOptionsPage = () =>
+  new Promise<void>((resolve, reject) => {
+    try {
+      chrome.runtime.openOptionsPage(() => {
+        const err = chrome.runtime.lastError;
+        if (err?.message) {
+          reject(new Error(err.message));
+          return;
+        }
+        resolve();
+      });
+    } catch (error) {
+      reject(error as Error);
+    }
+  });
+
+openOptionsBtn?.addEventListener("click", async () => {
+  setStatus("正在打开设置页面...");
+  try {
+    await openOptionsPage();
+    setStatus("已打开设置页面");
+  } catch (error) {
+    setStatus(`无法打开设置：${(error as Error).message}`);
+  }
+});
 
 chrome.tabs.onActivated.addListener(() => {
   refreshTabInfo();
